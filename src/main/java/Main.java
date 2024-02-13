@@ -27,6 +27,8 @@ For more in the future and more awesomer...
 5) You can make a new class for a turn, or a piece, or a screen painter
 */
 
+import java.util.Scanner;
+
 
 public class Main {
   static int r = 0;
@@ -34,13 +36,13 @@ public class Main {
   public static int numplayers = 0;
   static Player[] players = new Player[4];
   static Player currentPlayer;
+  static int gameSize;
+  static Scanner s;
   int[][]board;
   public static void main(String[] args) {
-    int[][]board = {
-
-        {0,0,0}, {0,0,0},{0,0,0}
-
-      };
+    
+    Scanner c = new Scanner(System.in);
+    int[][]board = new int[gameSize][gameSize];
     playing = true;
     players[0] = new Player("t", true, 1);
     players[1] = new Player("v", false, 2);
