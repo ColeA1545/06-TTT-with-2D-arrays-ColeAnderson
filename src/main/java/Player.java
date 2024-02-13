@@ -12,5 +12,6 @@ public class Player{
     
     System.out.println("Hello my name is " + this.name);
     System.out.println("Am I a CPU? :" + this.CPU);
+    Main.numplayers += 1;
   }
 }
