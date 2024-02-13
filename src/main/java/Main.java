@@ -42,13 +42,26 @@ public class Main {
   public static void main(String[] args) {
     
     Scanner c = new Scanner(System.in);
-    int[][]board = new int[gameSize][gameSize];
+    
+    System.out.println("How big of a game do you want?");
+    
+    int gameSize = c.nextInt();
+    
     playing = true;
     players[0] = new Player("t", true, 1);
     players[1] = new Player("v", false, 2);
     System.out.println("TTT - RAN WITHOUT ERRORS");
+  }
+  public static void play(){
   
-  while (playing){
+    int[][]board = new int[gameSize][gameSize];       //// Making the Board
+    for(int w = 0; w< gameSize; w++){
+      for(int a = 0; a < gameSize; a++){
+        board[w][a] = 0;
+      }
+    }
+    while (playing){
+  
   currentPlayer = players[r%numplayers];
   }
   }
