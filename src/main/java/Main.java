@@ -29,10 +29,11 @@ For more in the future and more awesomer...
 
 
 public class Main {
-  static var r = 0;
+  static int r = 0;
   static boolean playing;
   public static int numplayers = 0;
-  
+  static Player[] players = new Player[4];
+  static Player currentPlayer;
   int[][]board;
   public static void main(String[] args) {
     int[][]board = {
@@ -40,11 +41,13 @@ public class Main {
         {0,0,0}, {0,0,0},{0,0,0}
 
       };
-    Player t = new Player("t", true, 1);
-    Player v = new Player("v", false, 2);
+    playing = true;
+    players[0] = new Player("t", true, 1);
+    players[1] = new Player("v", false, 2);
     System.out.println("TTT - RAN WITHOUT ERRORS");
-  }
+  
   while (playing){
-  if(r%)
+  currentPlayer = players[r%numplayers];
+  }
   }
 }
