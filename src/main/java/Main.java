@@ -31,6 +31,7 @@ import java.util.Scanner;
 
 
 public class Main {
+  static Game g = new Game();
   static int r = 0;
   static boolean playing;
   public static int numplayers = 0;
@@ -44,15 +45,16 @@ public class Main {
     Scanner c = new Scanner(System.in);
     
     System.out.println("How big of a game do you want?");
-    
-    int gameSize = c.nextInt();
+
+    final int gameSize = c.nextInt();
     
     playing = true;
-    players[0] = new Player("t", true, 1);
+    players[0] = new Player("t", false, 1);
     players[1] = new Player("v", false, 2);
     System.out.println("TTT - RAN WITHOUT ERRORS");
+    play(gameSize, c);
   }
-  public static void play(){
+  public static void play(int gameSize, Scanner c){
   
     int[][]board = new int[gameSize][gameSize];       //// Making the Board
     for(int w = 0; w< gameSize; w++){
@@ -60,9 +62,25 @@ public class Main {
         board[w][a] = 0;
       }
     }
+    System.out.println(board);
     while (playing){
   
   currentPlayer = players[r%numplayers];
+  if(currentPlayer.CPU == true){
+
   }
+  else{
+    System.out.println("What row would you like to play in?");
+    int row = c.nextInt();
+    System.out.println("What coulumn would you like to play in?");
+    int column = c.nextInt();
+  }
+  for(int w = 0; w< gameSize; w++){
+      for(int a = 0; a < gameSize; a++){
+        System.out.print
+      }
+    }
+  }
+  g.win(board);
   }
 }
