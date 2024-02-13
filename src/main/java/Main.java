@@ -29,8 +29,22 @@ For more in the future and more awesomer...
 
 
 public class Main {
+  static var r = 0;
+  static boolean playing;
+  public static int numplayers = 0;
+  
+  int[][]board;
   public static void main(String[] args) {
-    new Player();
+    int[][]board = {
+
+        {0,0,0}, {0,0,0},{0,0,0}
+
+      };
+    Player t = new Player("t", true, 1);
+    Player v = new Player("v", false, 2);
     System.out.println("TTT - RAN WITHOUT ERRORS");
+  }
+  while (playing){
+  if(r%)
   }
 }
