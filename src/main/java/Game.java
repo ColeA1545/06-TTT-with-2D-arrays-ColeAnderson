@@ -41,10 +41,10 @@ public class Game {
     public static void win(int[][] board1){
 
         for(int b = 0; b< board1.length; b++){
-        int temp1 = board1[b][0];
+        int temp1 = currentPlayer.icon;
         scoreKeep = 0;
         for (int p = 0;  p < board1[b].length; p++){
-            if(board1[b][p] == temp1 && temp1 != 0){
+            if(board1[b][p] == temp1){
                 scoreKeep += 1;
             }
         }
@@ -55,15 +55,18 @@ public class Game {
         }
     }
     for(int y = 0; y< board1.length; y++){
-        int temp1 = board1[y][0];
+        int temp1 = currentPlayer.icon;
+        ;
         scoreKeep = 0;
         for (int u = 0;  u < board1[y].length; u++){
-            if(board1[u][y] == temp1 && temp1 != 0){
+            if(board1[u][y] == temp1){
                 scoreKeep += 1;
+                System.out.println(scoreKeep);
             }
         }
         if(scoreKeep == Main.gameSize){
             Main.playing = false;
+            System.out.println("Congrats to Player " + currentPlayer.icon + " for winning this game!");
             
             break;
         }
