@@ -52,35 +52,7 @@ public class Main {
     players[0] = new Player("t", false, 1);
     players[1] = new Player("v", false, 2);
     System.out.println("TTT - RAN WITHOUT ERRORS");
-    play(gameSize, c);
+    g.play(gameSize, c);
   }
-  public static void play(int gameSize, Scanner c){
   
-    int[][]board = new int[gameSize][gameSize];       //// Making the Board
-    for(int w = 0; w< gameSize; w++){
-      for(int a = 0; a < gameSize; a++){
-        board[w][a] = 0;
-      }
-    }
-    System.out.println(board);
-    while (playing){
-  
-  currentPlayer = players[r%numplayers];
-  if(currentPlayer.CPU == true){
-
   }
-  else{
-    System.out.println("What row would you like to play in?");
-    int row = c.nextInt();
-    System.out.println("What coulumn would you like to play in?");
-    int column = c.nextInt();
-  }
-  for(int w = 0; w< gameSize; w++){
-      for(int a = 0; a < gameSize; a++){
-        System.out.print
-      }
-    }
-  }
-  g.win(board);
-  }
-}

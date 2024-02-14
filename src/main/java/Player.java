@@ -9,6 +9,7 @@ public class Player{
 
     this.name = name;
     this.CPU = CPU;
+    this.icon = icon;
     
     System.out.println("Hello my name is " + this.name);
     System.out.println("Am I a CPU? :" + this.CPU);
