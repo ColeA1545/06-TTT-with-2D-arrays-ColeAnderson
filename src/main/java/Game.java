@@ -91,5 +91,22 @@ public class Game {
             break;
         }
     }
+    for(int y = 0; y< board1.length; y++){
+        int temp1 = currentPlayer.icon;
+        ;
+        scoreKeep = 0;
+        for (int u = 0;  u < board1[y].length; u++){
+            if(board1[y][gameSize] == temp1){
+                scoreKeep += 1;
+                System.out.println(scoreKeep);
+            }
+        }
+        if(scoreKeep == gameSize){
+            Main.playing = false;
+            System.out.println("Congrats to Player " + currentPlayer.icon + " for winning this game!");
+            
+            break;
+        }
+    }
     }
 }
