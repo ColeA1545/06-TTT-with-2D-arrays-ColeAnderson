@@ -8,7 +8,7 @@ public class Game {
 
     }
     public static void play(int gameSize, Scanner c){
-  
+    System.out.println(gameSize);
     int[][]board = new int[gameSize][gameSize];       //// Making the Board
     for(int w = 0; w< gameSize; w++){
       for(int a = 0; a < gameSize; a++){
@@ -35,11 +35,11 @@ public class Game {
       }
       System.out.println("");
     }
-    win(board);
+    win(board, gameSize);
 }
   }
   
-    public static void win(int[][] board1){
+    public static void win(int[][] board1, int gameSize){
 
         for(int b = 0; b< board1.length; b++){
         int temp1 = currentPlayer.icon;
