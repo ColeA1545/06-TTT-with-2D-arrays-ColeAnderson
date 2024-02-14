@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class Game {
     static int scoreKeep;
+    static int gameSize;
     static Player currentPlayer;
     public Game(){
 
@@ -26,7 +27,7 @@ public class Game {
     int row = c.nextInt();
     System.out.println("What coulumn would you like to play in?");
     int column = c.nextInt();
-    board[row][column] = currentPlayer.icon;
+    board[row - 1][column - 1] = currentPlayer.icon;
   }
   for(int w = 0; w< gameSize; w++){
       for(int a = 0; a < gameSize; a++){
@@ -48,7 +49,7 @@ public class Game {
                 scoreKeep += 1;
             }
         }
-        if(scoreKeep == Main.gameSize){
+        if(scoreKeep == gameSize){
             Main.playing = false;
 
             break;
@@ -64,7 +65,7 @@ public class Game {
                 System.out.println(scoreKeep);
             }
         }
-        if(scoreKeep == Main.gameSize){
+        if(scoreKeep == gameSize){
             Main.playing = false;
             System.out.println("Congrats to Player " + currentPlayer.icon + " for winning this game!");
             
