@@ -50,7 +50,7 @@ public class Main {
     
     playing = true;
     players[0] = new Player("t", false, 1);
-    players[1] = new Player("v", false, 2);
+    players[1] = new Player("v", true, 2);
     System.out.println("TTT - RAN WITHOUT ERRORS");
     g.play(gameSize, c);
   }
