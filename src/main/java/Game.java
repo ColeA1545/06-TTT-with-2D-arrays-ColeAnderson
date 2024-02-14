@@ -1,9 +1,11 @@
 import java.util.Scanner;
-
+import java.util.Random;
 public class Game {
+    static int q = 0;
     static int scoreKeep;
     static int gameSize;
     static Player currentPlayer;
+    static Random r = new Random();
     public Game(){
 
     }
@@ -18,8 +20,9 @@ public class Game {
     System.out.println(board);
     while (Main.playing){
   
-  currentPlayer = Main.players[Main.r%Main.numplayers];
-  if(currentPlayer.CPU == true){
+  currentPlayer = Main.players[q%Main.numplayers];
+  if(currentPlayer.CPU){
+    board[r.nextInt(gameSize)][r.nextInt(gameSize)] = currentPlayer.icon;
 
   }
   else{
@@ -36,6 +39,7 @@ public class Game {
       System.out.println("");
     }
     win(board, gameSize);
+    q++;
 }
   }
   
