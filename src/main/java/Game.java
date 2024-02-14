@@ -5,6 +5,9 @@ public class Game {
     static int scoreKeep;
     static int gameSize;
     static Player currentPlayer;
+    static int t1;
+    static int t2;
+    static boolean played = false;
     static Random r = new Random();
     public Game(){
 
@@ -21,10 +24,18 @@ public class Game {
     while (Main.playing){
   
   currentPlayer = Main.players[q%Main.numplayers];
+  
   if(currentPlayer.CPU){
-    board[r.nextInt(gameSize)][r.nextInt(gameSize)] = currentPlayer.icon;
-
-  }
+    played = false;
+    while(!played){
+        t1 = r.nextInt(gameSize);
+        t2 = r.nextInt(gameSize);
+        if(board[t1][t2] == 0){
+            board[t1][t2] = currentPlayer.icon;
+            played = true;
+        }
+    }
+}
   else{
     System.out.println("What row would you like to play in?");
     int row = c.nextInt();
@@ -37,6 +48,10 @@ public class Game {
         System.out.print(board[w][a] + ",");
       }
       System.out.println("");
+    }
+    if(gameSize * gameSize == q){
+        Main.playing = false;
+        System.out.println("No one was victorious :(");
     }
     win(board, gameSize);
     q++;
