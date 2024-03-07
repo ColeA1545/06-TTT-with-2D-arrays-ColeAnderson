@@ -35,7 +35,7 @@ public class Main {
   static int r = 0;
   static boolean playing;
   public static int numplayers = 0;
-  static Player[] players = new Player[4];
+  static Player[] players;
   static Player currentPlayer;
   static int gameSize;
   static Scanner s;
@@ -49,8 +49,13 @@ public class Main {
     final int gameSize = c.nextInt();
     
     playing = true;
-    players[0] = new Player("t", false, 1);
-    players[1] = new Player("v", true, 2);
+
+    System.out.println("How many players do you want?");
+    int y = c.nextInt();
+    players = new Player[y];
+    for(int u = 0; u < y; u++){
+      players[u] = new Player(u);
+    }
     System.out.println("TTT - RAN WITHOUT ERRORS");
     g.play(gameSize, c);
   }
