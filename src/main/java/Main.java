@@ -37,17 +37,18 @@ public class Main {
   public static int numplayers = 0;
   static Player[] players;
   static Player currentPlayer;
-  static int gameSize;
+  public static int gameSize;
   static Scanner s;
   int[][]board;
+  public static Button[] buttons;
   public static void main(String[] args) {
     
     Scanner c = new Scanner(System.in);
     
     System.out.println("How big of a game do you want?");
 
-    final int gameSize = c.nextInt();
-    
+    gameSize = c.nextInt();
+    buttons = new Button[gameSize * gameSize];
     playing = true;
 
     System.out.println("How many players do you want?");

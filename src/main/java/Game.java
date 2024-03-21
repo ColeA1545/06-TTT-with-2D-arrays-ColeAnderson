@@ -1,7 +1,10 @@
 import java.util.Scanner;
 import java.util.Random;
+import java.awt.*;
+import javax.swing.JButton;
+import javax.swing.JFrame;
 
-public class Game {
+public class Game extends JFrame{
   static int q = 0;
   static int scoreKeep;
   static int gameSize;
@@ -12,15 +15,23 @@ public class Game {
   static Random r = new Random();
 
   public Game() {
-
+    setTitle("Tic Tac Toe");
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    setSize(640,480);
+    setLayout(new FlowLayout());
+    setResizable(true);
+    setLocationRelativeTo(null);
+    setVisible(true);
   }
 
-  public static void play(int gameSize, Scanner c) {
+  public void play(int gameSize, Scanner c) {
     System.out.println(gameSize);
     int[][] board = new int[gameSize][gameSize]; //// Making the Board
     for (int w = 0; w < gameSize; w++) {
       for (int a = 0; a < gameSize; a++) {
         board[w][a] = 0;
+        Button b = new Button(w*gameSize + a, 0);
+        add(b);
       }
     }
     System.out.println(board);
@@ -49,6 +60,7 @@ public class Game {
           if(board[row - 1][column - 1] == 0){
             played = true;
             board[row - 1][column - 1] = currentPlayer.icon;
+            Main.buttons[((row-1)*Main.gameSize + row - 1)].status = currentPlayer.icon;
           }
           else{
             System.out.println("That's an illegal move :(");
@@ -92,11 +104,12 @@ public class Game {
         break;
       }
     }
+    scoreKeep = 0;
     for (int y = 0; y < board1.length; y++) {
       int temp1 = currentPlayer.icon;
-      scoreKeep = 0;
+      
       for (int u = 0; u < board1[y].length; u++) {
-        if (board1[u][y] == temp1) {
+        if (y==u && temp1 == board1[y][y]) {
           scoreKeep += 1;
           System.out.println(scoreKeep);
         }
