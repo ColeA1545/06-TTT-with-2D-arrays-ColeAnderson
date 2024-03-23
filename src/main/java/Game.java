@@ -13,23 +13,24 @@ public class Game extends JFrame{
   static int t2;
   static boolean played = false;
   static Random r = new Random();
+  public static int[][] board;
 
   public Game() {
     setTitle("Tic Tac Toe");
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     setSize(640,480);
     setLayout(new FlowLayout());
-    setResizable(true);
+    setResizable(false);
     setLocationRelativeTo(null);
     setVisible(true);
   }
 
   public void play(int gameSize, Scanner c) {
     System.out.println(gameSize);
-    int[][] board = new int[gameSize][gameSize]; //// Making the Board
+    this.board = new int[gameSize][gameSize]; //// Making the Board
     for (int w = 0; w < gameSize; w++) {
       for (int a = 0; a < gameSize; a++) {
-        board[w][a] = 0;
+        this.board[w][a] = 0;
         Button b = new Button(w*gameSize + a, 0);
         add(b);
       }
@@ -46,6 +47,7 @@ public class Game extends JFrame{
           t2 = r.nextInt(gameSize);
           if (board[t1][t2] == 0) {
             board[t1][t2] = currentPlayer.icon;
+            Main.buttons[((t1)*Main.gameSize + t2)].status = currentPlayer.icon;
             played = true;
           }
         }
@@ -60,7 +62,7 @@ public class Game extends JFrame{
           if(board[row - 1][column - 1] == 0){
             played = true;
             board[row - 1][column - 1] = currentPlayer.icon;
-            Main.buttons[((row-1)*Main.gameSize + row - 1)].status = currentPlayer.icon;
+            Main.buttons[((row-1)*Main.gameSize + column - 1)].status = currentPlayer.icon;
           }
           else{
             System.out.println("That's an illegal move :(");
@@ -134,7 +136,7 @@ public class Game extends JFrame{
       if (scoreKeep == gameSize) {
         Main.playing = false;
         System.out.println("Congrats to Player " + currentPlayer.icon + " for winning this game!");
-
+        Main.playing = false;
         break;
       }
     }

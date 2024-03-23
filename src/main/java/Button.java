@@ -6,10 +6,11 @@ import java.awt.*;
 
 public class Button extends JButton implements ActionListener {
   public int status;
-  private static int tag;
-
+  private int tag;
+  private int q;
   public Button(int tag, int status) {
     super("Yeah, this is Nice");
+    q = 0;
     Main.buttons[tag] = this;
     this.tag = tag + 1;
     this.status = status;
@@ -20,7 +21,18 @@ public class Button extends JButton implements ActionListener {
 
   @Override
   public void actionPerformed(ActionEvent e) {
-    System.out.println("Played on tile " + this.tag);
+    
+    if(this.status == 0){
+      status = Main.players[q%Main.numplayers].icon;
+    System.out.println("Played on tile " + tag);
+    
+      
+      Game.win(Game.board, Main.gameSize);
     setText(status + "");
+    q++;
+    }
+    else{
+      System.out.println("Pick a new tile");
+    }
   }
 }
