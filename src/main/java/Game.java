@@ -20,7 +20,7 @@ public class Game extends JFrame{
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     setSize(640,480);
     setLayout(new FlowLayout());
-    setResizable(false);
+    setResizable(true);
     setLocationRelativeTo(null);
     setVisible(true);
   }
