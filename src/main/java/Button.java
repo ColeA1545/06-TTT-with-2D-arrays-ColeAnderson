@@ -9,11 +9,12 @@ public class Button extends JButton implements ActionListener {
   private int tag;
   private int q;
   public Button(int tag, int status) {
-    super("Yeah, this is Nice");
+    super ("Yeah, this is Nice");
     q = 0;
     Main.buttons[tag] = this;
     this.tag = tag + 1;
     this.status = status;
+    setVisible(true);
     this.setPreferredSize(new Dimension(640 / Main.gameSize, 480 / Main.gameSize));
     setText(status + "");
     addActionListener(this);
