@@ -10,6 +10,7 @@ public class Button extends JButton implements ActionListener {
   private int q = 0;
   public Button(int tag, int status) {
     super("Yeah, this is Nice");
+    
     q = 0;
 
     Main.buttons[tag] = this;
